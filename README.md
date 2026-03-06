@@ -1,6 +1,6 @@
 # Embedded Task Scheduler
 
-A lightweight embedded task scheduler implemented in **C11** with **POSIX** simulation. Manages multiple concurrent tasks using configurable scheduling policies, driven by a software timer.
+A lightweight embedded task scheduler implemented in **C** with **POSIX** simulation. Manages multiple concurrent tasks using configurable scheduling policies, driven by a software timer.
 
 ---
 
