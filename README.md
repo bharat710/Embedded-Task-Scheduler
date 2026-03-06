@@ -30,18 +30,18 @@ Timer / System Clock
 
 ## Features
 
-| Feature                  | Status |
-|--------------------------|--------|
-| Task Control Block (TCB) | ✅     |
-| Task creation / deletion | ✅     |
-| Task state management    | ✅     |
-| Round Robin scheduling   | ✅     |
-| Priority-Based scheduling| ✅     |
-| Periodic task execution  | ✅     |
-| Software timer           | ✅     |
-| Cooperative mutex        | ✅     |
-| Coloured terminal output | ✅     |
-| CLI-configurable policy  | ✅     |
+| Feature                  |
+|--------------------------|
+| Task Control Block (TCB) |
+| Task creation / deletion | 
+| Task state management    | 
+| Round Robin scheduling   | 
+| Priority-Based scheduling| 
+| Periodic task execution  | 
+| Software timer           |
+| Cooperative mutex        | 
+| Coloured terminal output | 
+| CLI-configurable policy  | 
 
 ## Project Structure
 
@@ -100,21 +100,6 @@ make run-rr         # Same as above
 make run-priority   # Build & run with Priority-Based, 40 ticks
 ```
 
-### Example Output
-
-```
-[   0 ms]  ▶ LED Toggle        (prio=2  state=RUNNING)
-           💡 [Task 1] LED → ON
-[   5 ms]  ▶ Sensor Read       (prio=1  state=RUNNING)
-           🌡  [Task 2] Sensor temp = 27.3 °C
-[  10 ms]  ▶ Data Logger        (prio=3  state=RUNNING)
-           📝 [Task 3] Log entry #1 written
-[  15 ms]  ▶ Motor Control      (prio=0  state=RUNNING)
-           ⚙️  [Task 4] Motor PWM duty = 64%
-[  20 ms]  ▶ Communication      (prio=4  state=RUNNING)
-           📡 [Task 5] Packet #1 sent
-```
-
 ## Registered Demo Tasks
 
 | Task             | Priority | Period | Description              |
@@ -144,18 +129,3 @@ Any ──► SUSPENDED   (explicitly suspended)
 SUSPENDED ──► READY (explicitly resumed)
 ```
 
-## Extending the Project
-
-### Add a New Task
-1. Declare the function in `src/tasks/tasks.h`
-2. Implement it in `src/tasks/tasks.c`
-3. Register it in `src/main.c` via `scheduler_add_task()`
-
-### Add a New Scheduling Policy
-1. Add a value to `sched_policy_t` in `scheduler.h`
-2. Implement a `schedule_<name>()` function in `scheduler.c`
-3. Add the case to the `switch` in `scheduler_run()`
-
-## License
-
-Academic project — developed for the Embedded Systems course.
